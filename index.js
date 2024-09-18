@@ -45,7 +45,7 @@ try {
 const io = new Server(server, {
     pingTimeout: 10,
     cors: {
-        origin: `${process.env.FRONTEND_URI}`,
+        origin: "*",
         methods: ["GET", "POST"]
     },
 })
