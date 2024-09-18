@@ -43,7 +43,7 @@ try {
 }
 
 const io = new Server(server, {
-    pingTimeout: 10,
+    pingTimeout: 180000,
     cors: {
         origin: "*",
         methods: ["GET", "POST"]
