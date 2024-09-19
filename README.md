@@ -1,6 +1,3 @@
-Here’s a detailed **System Design Document** for your chat application backend, including setup instructions, dependencies, and the rationale behind them.
-
----
 
 # **System Design Document**
 
@@ -173,4 +170,3 @@ For any questions or contributions, feel free to submit issues or pull requests 
 
 --- 
 
-Let me know if you'd like to modify or expand any part of the document!
