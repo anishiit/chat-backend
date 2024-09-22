@@ -59,7 +59,18 @@ io.on("connection", (socket) => {
         socket.join(roomId) // join a unique room
         console.log(`user: ${userId} joined in room : ${roomId}`)
     });
-
+    socket.on("typing", ({roomId , fromUserName}) => {
+        // console.log('typing... ',{fromUserName})
+        io.to(roomId).emit('typing',{fromUserName});
+    });
+    socket.on("online", ({roomId , fromUserName}) => {
+        // console.log('online... ',{fromUserName})
+        io.to(roomId).emit('online',{fromUserName});
+    });
+    socket.on("stop_typing", ({roomId }) => {
+      console.log("stop typing..")
+      io.to(roomId).emit('stop_typing', {roomId});
+    })
     socket.on('send_message', async ({ message, roomId, fromUserName, fromUserId, isGroupChat }) => {
         // Broadcast message to everyone in the room (including sender)  
         // console.log(isGroupChat);
@@ -75,6 +86,7 @@ io.on("connection", (socket) => {
     });
 
     socket.on("disconnect", () => {
+        
         console.log(`user disconnected ${socket.id}`)
     })
 })
